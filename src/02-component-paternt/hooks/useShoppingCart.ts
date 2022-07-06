@@ -15,34 +15,18 @@ const onProductChange = ({count,producto}:{count:number,producto:Product})=>{
   
   setShoppingCart(oldShoppingCart => {
 
-    const productInCart:ProductInCart = oldShoppingCart[producto.id] || {...producto,count:0};  /* tarea otra manera*/
-
-    if(Math.max(productInCart.count + count,0)>0){
-      productInCart.count += count;
-
-      return {
-        ...oldShoppingCart,
-        [producto.id]:productInCart
-      }
-    }
-// borrar el resto
-
-const {[producto.id]:elimimar,...resto } = oldShoppingCart
-  return {...resto}
-//    }
-
     
 
-    //   if(count === 0) {                                    /*tarea*/
+      if(count === 0) {                                    /*tarea*/
 
-    //     const {[producto.id]:elimimar,...resto } = oldShoppingCart
-    //     return resto
-    //    }
-    // return {
-    //   ...oldShoppingCart,
-    //   [producto.id]:{...producto , count},
+        const {[producto.id]:elimimar,...resto } = oldShoppingCart
+        return resto
+       }
+    return {
+      ...oldShoppingCart,
+      [producto.id]:{...producto , count},
       
-    // }
+    }
   })
 }
 return {
