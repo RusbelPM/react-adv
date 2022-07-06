@@ -9,7 +9,7 @@ import { Props as ProductButtonsProps} from '../components/ProductButtons';
 
 export interface Product {
     id:string;
-    title:string;
+    title?:string;
     img?:string
     
 }
@@ -32,3 +32,12 @@ export interface ProductCarHocProps  {
 
 
 }
+
+export interface onChangeArgs {
+    producto:Product;
+    count:number;
+}
+
+export interface ProductInCart extends Product {
+    count:number;
+  }
